@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#000"
+      },
+      "button": {
+        "background": "#f1d600"
+      }
+    },
+    "theme": "classic",
+    "type": "opt-in",
+    "content": {
+      "message": "Ce site utilise des cookies pour améliorer votre expérience.",
+      "dismiss": "Accepter",
+      "allow": "Accepter",
+      "deny": "Refuser",
+      "link": "En savoir plus",
+      "href": "/gestion-cookies.html"
+    }
+  })
+});
+</script>
+
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -539,7 +566,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><a href="mentionslegalelakaz.html">Mentions légales</a></li>
                 <li><a href="cgu.html">CGV / CGU</a></li>
                 <li><a href="confidentialite.html">Politique de confidentialité</a></li>
-                <li><a href="/cookies">Gestion des cookies</a></li>
+                <li><a href="cookies.html">Gestion des cookies</a></li>
             </ul>
         </div>
 
