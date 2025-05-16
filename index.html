@@ -458,6 +458,137 @@ footer {
     font-size: 0.9rem;
 }
 
+.element {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  font-size: 1em;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+:root {
+  --mobile: 320px;
+  --tablet: 768px;
+  --desktop: 1024px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style de base (mobile) */
+.element {
+  width: 100%;
+}
+
+/* Adaptation tablette et desktop */
+@media screen and (min-width: 768px) {
+  .element {
+    width: 50%;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: calc(16px + 0.5vw);
+  }
+}
+
+.hide-mobile {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .hide-mobile {
+    display: block;
+  }
+}
+
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables globales */
+:root {
+    --max-width: 1200px;
+    --spacing: 20px;
+}
+
+/* Conteneur principal */
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing);
+}
+
+/* Grille responsive */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing);
+}
+
+/* Media Queries */
+@media screen and (max-width: 767px) {
+    .container {
+        width: 95%;
+        padding: calc(var(--spacing) / 2);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: calc(var(--spacing) * 2);
+    }
+}
+
+
+
+/* Pour mobile */
+@media screen and (max-width: 767px) {
+  /* Styles spécifiques mobile */
+}
+
+/* Pour tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Styles spécifiques tablette */
+}
+
+/* Pour desktop */
+@media screen and (min-width: 1024px) {
+  /* Styles spécifiques desktop */
+}
+
 /* Media Queries pour la responsivité */
 @media screen and (max-width: 768px) {
     .footer-container {
