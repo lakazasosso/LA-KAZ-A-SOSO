@@ -109,5 +109,65 @@
             }
         });
     </script>
+    <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init('2qAb97e0NHlEIXzF5Ph8w'); // Mets ici ton user ID EmailJS
+  })();
+
+  document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Reset erreurs
+      const inputs = document.querySelectorAll('input, select');
+      inputs.forEach(input => input.classList.remove('error'));
+      
+      // Validation simple
+      let isValid = true;
+      inputs.forEach(input => {
+          if (!input.value) {
+              input.classList.add('error');
+              isValid = false;
+          }
+      });
+      
+      if (isValid) {
+          const email = document.getElementById('email').value;
+          const prenom = document.getElementById('prenom').value;
+          const nom = document.getElementById('nom').value;
+          const sexe = document.getElementById('sexe').value;
+          const naissance = document.getElementById('naissance').value;
+
+          // Sauvegarder localement
+          localStorage.setItem('newsletterInscrit', 'true');
+          localStorage.setItem('newsletterEmail', email);
+
+          // Préparer les données pour EmailJS (selon ton template)
+          const templateParams = {
+              to_email: email,
+              to_name: prenom + ' ' + nom,
+              sexe: sexe,
+              date_naissance: naissance
+          };
+
+          emailjs.send('service_nks7j03', 'template_mlo5ivl', templateParams)
+            .then(function(response) {
+               console.log('Email envoyé!', response.status, response.text);
+               document.getElementById('successMessage').style.display = 'block';
+
+               // Optionnel : reset formulaire
+               document.getElementById('newsletterForm').reset();
+
+               // Rediriger après 5 sec
+               setTimeout(() => {
+                   window.location.href = 'index.html';
+               }, 5000);
+            }, function(error) {
+               console.error('Erreur envoi email :', error);
+               alert('Une erreur est survenue lors de l\'envoi de l\'email. Veuillez réessayer.');
+            });
+      }
+  });
+</script>
 </body>
 </html>
