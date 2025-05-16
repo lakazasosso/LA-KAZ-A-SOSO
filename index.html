@@ -830,5 +830,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         });
     </script>
+    <!-- Bandeau cookies -->
+<div id="cookie-banner" style="position:fixed; bottom:0; left:0; right:0; background:#222; color:#fff; padding:15px; text-align:center; font-family:Arial, sans-serif; z-index:9999;">
+  Ce site utilise des cookies pour améliorer votre expérience. 
+  <button id="accept-cookies" style="margin-left:15px; padding:5px 10px; cursor:pointer;">Accepter</button>
+  <button id="decline-cookies" style="margin-left:10px; padding:5px 10px; cursor:pointer;">Refuser</button>
+  <a href="cookies.html" style="color:#66ccff; margin-left:15px;">Paramètres cookies</a>
+</div>
+
+<script>
+  // Vérifie si l'utilisateur a déjà choisi
+  if(localStorage.getItem('cookiesAccepted') === 'true' || localStorage.getItem('cookiesAccepted') === 'false') {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  document.getElementById('accept-cookies').onclick = function() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+    // Ici tu peux lancer Google Analytics ou autres scripts liés aux cookies acceptés
+  };
+
+  document.getElementById('decline-cookies').onclick = function() {
+    localStorage.setItem('cookiesAccepted', 'false');
+    document.getElementById('cookie-banner').style.display = 'none';
+    // Ici tu peux bloquer les cookies non essentiels ou ne rien faire
+  };
+</script>
+
+<script>
+  // Fonction pour charger Google Analytics
+  function loadGoogleAnalytics() {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'GTM-MPLZ78RW', 'auto'); // Remplace par ton ID GA
+    ga('send', 'pageview');
+  }
+
+  // Vérifie si utilisateur a accepté les cookies
+  const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+
+  if (cookiesAccepted === 'true') {
+    loadGoogleAnalytics();
+  }
+
+  // Si utilisateur accepte via le bandeau, charge GA
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    loadGoogleAnalytics();
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  
+  // Refuser cookies ne charge pas GA
+  function refuseCookies() {
+    localStorage.setItem('cookiesAccepted', 'false');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
