@@ -4,7 +4,7 @@ Le site officiel du traiteur LA KAZ' A SOSO, spécialisé en cuisine maison anti
 
 Bienvenue sur mon site web hébergé avec **GitHub Pages** !
 
-👉 [Voir le site en ligne](https://github.com/lakazasosso/LA-KAZ-A-SOSO.git)
+👉 [Voir le site en ligne](https://lakazasosso.github.io/LA-KAZ-A-SOSO/)
 
 ## Contenu
 
