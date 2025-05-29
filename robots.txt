@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lakazasosso.github.io/LA-KAZ-A-SOSSO/sitemap.xml
+Sitemap: https://www.lakazasosso.fr/sitemap.xml
